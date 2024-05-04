@@ -22,5 +22,9 @@ table {
     transition: all 0.5s ease-in;
     cursor: pointer;
   }
+  .err{
+    font-style: italic;
+    background-color: red;
+  }
   /* body div#ex0 , body div#ex1 p, body div#ex2{  
   } */

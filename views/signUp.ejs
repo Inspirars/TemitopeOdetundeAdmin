@@ -20,13 +20,13 @@
           </div>
 
           <!-- Password input -->
-          <div data-mdb-input-init class="form-outline mb-4">
+          <div data-mdb-input-init class="form-outline mb-2">
             <input type="password" name="password" id="form1Example23" class="form-control form-control-lg" />
             <label class="form-label" for="form1Example23">Password</label>
           </div>
           <%if(error){%>
-            <%error.forEach(err =>{%>
-              <p class="err"><%=err.msg%></p>
+            <%error?.forEach(err =>{%>
+              <p class="err mb-2 text-danger"><%=err.msg%></p>
             <%})%>
           <%}%>
 

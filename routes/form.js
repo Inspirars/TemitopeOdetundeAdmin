@@ -8,28 +8,21 @@ const User = require('../models/user');
 
 
 /* GET home page. */
-
 let error = ""
 
 router.get('/signup',function(req, res, next) {
+  error = []
   res.render('signUp', {title: 'Sign Up', error});
 });
-router.post('/signup',
-body('username').custom(async (value)=>{
-  console.log(value)
-  const newUser = await User.find({username : value})
-  console.log(newUser)
-  if(newUser != []){
-    throw new Error('User Already Exists')
-  }
-})
-, asyncHandler(async(req,res,next)=>{
-  const error  = validationResult(req)
-  console.log(error)
-  if (!error.isEmpty()){
-    res.render('signUp', {title : "Sign Up Error", error : error.array()})
-  }else{
+router.post('/signup', asyncHandler(async(req,res,next)=>{
   let username = req.body.username
+  newUser = await User.findOne({username : username}).exec()
+  if (newUser){
+    console.log(newUser)
+    error = [ {msg :"User already exists"}]
+    res.render('signUp', {title : "Sign Up Error", error : error})
+  }else{
+  
   var saltHash = genPassword(req.body.password)
   // genpassword returns a salt and hash
 
