@@ -7,7 +7,12 @@
     <section class="flex justify-center">
         <form method="post" class="flex flex-col items-start gap-5 px-5" enctype="multipart/form-data" action=<%=action %> >
             <div class="relative imgsect md:w-[80%] lg:w-[50%] rounded-lg">
-                <img src="/images/blogCoverImgs/blog1.png" alt="" class="w-full relative rounded-lg" id="imag">
+                <img src=<%if(editableDoc.image){%>
+                    <%=editableDoc.image %>
+                <%}else{%>
+                    `/images/blogCoverImgs/blog1.png`
+                <%}%>
+                alt="" class="w-full relative rounded-lg" id="imag">
                 <input type="file" name="image" class="hidden" id="itemInput" aria-describedby="emailHelp">
                 <div class="absolute text-black-100 top-0 flex items-center justify-center bg-[rgba(0,0,0,0.5)] w-full bottom-0 h-full divvy" id="divvy">
                     Upload Img

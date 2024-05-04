@@ -21,7 +21,6 @@ const postSchema = new Schema({
     },
     image : {
         type : String,
-        default : "/images/blogCoverImgs/blog1.png"
     },
     content : {
         type : String,
