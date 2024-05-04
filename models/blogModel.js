@@ -41,6 +41,11 @@ postSchema.virtual("formattedDate").get(function(){
     return DateTime.fromJSDate(this.date).toLocaleString(DateTime.DATE_MED)
 })
 
+postSchema.virtual('delete').get(function(){
+    return `delete/${this._id}`
+})
+
+
 const post = mongoose.model('post', postSchema)
 
 module.exports = post

@@ -618,12 +618,20 @@ video {
   margin-bottom: 1rem;
 }
 
+.mb-12 {
+  margin-bottom: 3rem;
+}
+
 .mb-4 {
   margin-bottom: 1rem;
 }
 
 .mt-2 {
   margin-top: 0.5rem;
+}
+
+.mb-7 {
+  margin-bottom: 1.75rem;
 }
 
 .flex {
@@ -871,6 +879,9 @@ tr:nth-child(even) {
   transition: all 0.5s ease-in;
   cursor: pointer;
 }
+
+/* body div#ex0 , body div#ex1 p, body div#ex2{  
+  } */
 
 .hover\:border-red-400:hover {
   --tw-border-opacity: 1;

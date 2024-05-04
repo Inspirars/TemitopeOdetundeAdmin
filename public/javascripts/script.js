@@ -2,7 +2,7 @@ let itemInput = document.querySelector("#itemInput")
 let imag = document.querySelector('#imag')
 let divvy = document.getElementById("divvy")
 
-divvy.addEventListener('click',()=>{
+divvy?.addEventListener('click',()=>{
     itemInput.click()
 })
 
@@ -16,7 +16,7 @@ function fasterPreview(uploader){
     }
 }
 
-itemInput.addEventListener('change',function(){
+itemInput?.addEventListener('change',function(){
     console.log("yeah")
     fasterPreview(this)
 })

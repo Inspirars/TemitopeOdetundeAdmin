@@ -1,5 +1,6 @@
 <%- include("./layout/header.ejs") %>
 <link rel="stylesheet" href="/stylesheets/style.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.css" />
 <title><%=title %></title>
 </head>
 <body>
@@ -32,6 +33,17 @@
         <tbody>
             <%if(postsTitle){%>
                 <%postsTitle.forEach((detail,idx)=> {%>
+                    <div id=<%=`ex${idx}`%> class="modal delete mb-12">
+                        <p class="text-center mb-7 font-bold">Are You Sure You Want To See This Go</p>
+                        <div class="text-center ">
+                            <a href=<%=detail.delete%> >
+                                <button class="text-sm md:text-lg p-2 md:px-3 md:py-2 rounded text-white font-semibold bg-red-300 border-2 border-red-300 hover:bg-grey-100 hover:text-red-500 transition-all duration-700">
+                                    Delete
+                                </button>
+
+                            </a>
+                        </div>
+                    </div>
                     <tr>
                         <td><%=idx + 1 %></td>
                         <td><%=detail.title%></td>
@@ -43,10 +55,8 @@
                                 </button>
                             </a>
                             
-                            <a href="">
-                                <button class="text-sm md:text-lg p-2 md:px-3 md:py-2 rounded text-white font-semibold bg-red-300 border-2 border-red-300 hover:bg-grey-100 hover:text-red-500 transition-all duration-700">
+                            <a href=<%=`#ex${idx}`%>  rel="modal:open" class="text-sm md:text-lg p-2 md:px-3 md:py-2 rounded text-white font-semibold bg-red-300 border-2 border-red-300 hover:bg-grey-100 hover:text-red-500 transition-all duration-700">
                                     Delete
-                                </button>
                             </a>
                         </td>
                     </tr>
@@ -62,6 +72,13 @@
             Create New Post
         </button>
       </a>
+      <%if(postsTitle){%>
+        <%postsTitle.forEach((post,idx)=>{%>
+            
+
+              
+        <%})%>
+      <%}%>
       
   </main>
 

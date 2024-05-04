@@ -5,10 +5,10 @@
 <body class="py-12 bg-slate-50">
     <header class="text-center text-3xl font-bold my-4">Create New Blog Post</header>
     <section class="flex justify-center">
-        <form method="post" class="flex flex-col gap-5 px-5" action=<%=action %>>
+        <form method="post" class="flex flex-col gap-5 px-5" enctype="multipart/form-data" action=<%=action %> >
             <div class="relative imgsect md:w-[80%] lg:w-[50%] rounded-lg">
                 <img src="/images/blogCoverImgs/blog1.png" alt="" class="w-full relative rounded-lg" id="imag">
-                <input type="file" name="itemImage" class="hidden" id="itemInput" aria-describedby="emailHelp">
+                <input type="file" name="image" class="hidden" id="itemInput" aria-describedby="emailHelp">
                 <div class="absolute text-black-100 top-0 flex items-center justify-center bg-[rgba(0,0,0,0.5)] w-full bottom-0 h-full divvy" id="divvy">
                     Upload Img
                 </div>
@@ -17,24 +17,31 @@
                 <label for="title" class="text-base md:text-lg">
                     Title
                     <div>
-                        <input type="text" id="title" name="title" class="border border-grey-200 outline-purple w-full p-3 rounded mt-2" required>
+                        <input type="text" id="title" name="title" class="border border-grey-200 outline-purple w-full p-3 rounded mt-2" required value=<%if(editableDoc){%>
+                            <%=editableDoc.title%>
+                        <%}%> >
                     </div>
                 </label>
                 <label for="title" class="text-base md:text-lg">
                     Tag(Max. 6 characters)
                     <div>
-                        <input type="text" name="tag" class="border border-grey-200 outline-purple w-full p-3 rounded mt-2" maxlength="6" required>
+                        <input type="text" name="tag" class="border border-grey-200 outline-purple w-full p-3 rounded mt-2" maxlength="6" required value=<%if(editableDoc){%>
+                            <%=editableDoc.tag%>
+                        <%}%>>
                     </div>
                 </label>
                 <label for="content" class="text-base md:text-lg">
                     Content
-                    <textarea name="content" class="mt-2" id="editor" cols="30" rows="10"  required>
-    
+                    <textarea name="content" class="mt-2" id="editor" cols="30" rows="10"  required >
+                        <%if(editableDoc){%>
+                            <%=editableDoc.content%>
+                        <%}%>
                     </textarea>
                 </label>
             </div>
-
-            
+            <button>
+                submit
+            </button>
         </form>
     </section>
 
