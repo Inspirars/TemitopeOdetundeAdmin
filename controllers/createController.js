@@ -25,13 +25,13 @@ exports.createPost  = asyncHandler(async (req,res,next)=>{
             tag : req.body.tag,
             content : req.body.content
         })
+    }else{
+        var post = new Post({
+            title : req.body.title,
+            tag : req.body.tag,
+            content : req.body.content
+        })
     }
-  
-      var post = new Post({
-        title : req.body.title,
-        tag : req.body.tag,
-        content : req.body.content
-    })
     if(req.file){
         fs.unlinkSync(req.file.path)
     }
