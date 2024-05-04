@@ -5,7 +5,7 @@
 <body class="py-12 bg-slate-50">
     <header class="text-center text-3xl font-bold my-4">Create New Blog Post</header>
     <section class="flex justify-center">
-        <form method="post" class="flex flex-col gap-5 px-5" enctype="multipart/form-data" action=<%=action %> >
+        <form method="post" class="flex flex-col items-start gap-5 px-5" enctype="multipart/form-data" action=<%=action %> >
             <div class="relative imgsect md:w-[80%] lg:w-[50%] rounded-lg">
                 <img src="/images/blogCoverImgs/blog1.png" alt="" class="w-full relative rounded-lg" id="imag">
                 <input type="file" name="image" class="hidden" id="itemInput" aria-describedby="emailHelp">
@@ -23,9 +23,9 @@
                     </div>
                 </label>
                 <label for="title" class="text-base md:text-lg">
-                    Tag(Max. 6 characters)
+                    Tag(Max. 10 characters)
                     <div>
-                        <input type="text" name="tag" class="border border-grey-200 outline-purple w-full p-3 rounded mt-2" maxlength="6" required value=<%if(editableDoc){%>
+                        <input type="text" name="tag" class="border border-grey-200 outline-purple w-full p-3 rounded mt-2" maxlength="10" required value=<%if(editableDoc){%>
                             <%=editableDoc.tag%>
                         <%}%>>
                     </div>
@@ -39,8 +39,8 @@
                     </textarea>
                 </label>
             </div>
-            <button>
-                submit
+            <button class="my-3 text-sm md:text-lg p-2 md:px-5 md:py-4 rounded font-semibold bg-purple text-white border border-purple hover:bg-grey-100 hover:text-purple transition-all duration-700">
+                Submit
             </button>
         </form>
     </section>

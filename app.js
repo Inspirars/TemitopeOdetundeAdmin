@@ -14,6 +14,7 @@ require('dotenv').config()
 var formRouter = require('./routes/form');
 var dashboardRouter = require('./routes/dashboard');
 var postCreateEdit = require('./routes/postCreateEdit')
+var deleteRouter = require('./routes/deletePost')
 
 var app = express();
 
@@ -59,6 +60,7 @@ app.use(passport.session());
 app.use('/', dashboardRouter);
 app.use('/', formRouter);
 app.use("/", postCreateEdit)
+app.use("/", deleteRouter)
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

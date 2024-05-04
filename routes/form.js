@@ -54,4 +54,12 @@ router.get('/signin',(req,res,next)=> {
 
 router.post('/signin',passport.authenticate('local',{failureRedirect : "/signin", successRedirect : "/home"}))
 
+router.get('/logout', (req,res,next)=>{
+  req.logOut((err)=>{
+    if(err) return next(err)
+
+    res.redirect('/signin')
+  })
+})
+
 module.exports = router;
