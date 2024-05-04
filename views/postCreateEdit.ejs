@@ -5,12 +5,12 @@
 <body class="py-12 bg-slate-50">
     <header class="text-center text-3xl font-bold my-4">Create New Blog Post</header>
     <section class="flex justify-center">
-        <form method="post" class="flex flex-col items-start gap-5 px-5 border" enctype="multipart/form-data" action=<%=action %> >
+        <form method="post" class="flex flex-col max-w-[1000px] items-start gap-5 px-5 " enctype="multipart/form-data" action=<%=action %> >
             <div class="relative imgsect md:w-[80%] lg:w-[50%] rounded-lg">
                 <img src=<%if(editableDoc.image){%>
                     <%=editableDoc.image %>
                 <%}else{%>
-                    `/images/blogCoverImgs/blog1.png`
+                    "/images/blogCoverImgs/blog1.png"
                 <%}%>
                 alt="" class="w-full relative rounded-lg" id="imag">
                 <input type="file" name="image" class="hidden" id="itemInput" aria-describedby="emailHelp">
