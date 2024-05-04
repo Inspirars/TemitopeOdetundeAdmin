@@ -11,7 +11,8 @@ cloudinary.config({
 
 exports.editGet = asyncHandler(async (req,res)=>{
     let itemId = req.params.id
-    const editableDoc = await Post.findById(itemId).exec()
+    const editableDoc = await Post.findById(itemId)
+    console.log(editableDoc)
     res.render('postCreateEdit',{title : "Create", action : `/edit/${itemId}`,editableDoc})
 })
 

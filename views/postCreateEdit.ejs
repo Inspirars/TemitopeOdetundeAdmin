@@ -5,7 +5,7 @@
 <body class="py-12 bg-slate-50">
     <header class="text-center text-3xl font-bold my-4">Create New Blog Post</header>
     <section class="flex justify-center">
-        <form method="post" class="flex flex-col items-start gap-5 px-5" enctype="multipart/form-data" action=<%=action %> >
+        <form method="post" class="flex flex-col items-start gap-5 px-5 border" enctype="multipart/form-data" action=<%=action %> >
             <div class="relative imgsect md:w-[80%] lg:w-[50%] rounded-lg">
                 <img src=<%if(editableDoc.image){%>
                     <%=editableDoc.image %>
@@ -18,16 +18,14 @@
                     Upload Img
                 </div>
             </div>
-            <div class="flex flex-col gap-5">
-                <label for="title" class="text-base md:text-lg">
+            <div class="flex flex-col gap-5 w-full">
+                <label for="title" class="text-base md:text-lg lg:w-[50%]">
                     Title
-                    <div>
-                        <input type="text" id="title" name="title" class="border border-grey-200 outline-purple w-full p-3 rounded mt-2" required value=<%if(editableDoc){%>
-                            <%=editableDoc.title%>
-                        <%}%> >
+                        <input type="text" id="title" name="title" class="border border-grey-200 outline-purple p-3 rounded mt-2 w-full" required 
+                        value="<%=editableDoc?.title%>" >
                     </div>
                 </label>
-                <label for="title" class="text-base md:text-lg">
+                <label for="title" class="text-base md:text-lg lg:w-[50%]">
                     Tag(Max. 10 characters)
                     <div>
                         <input type="text" name="tag" class="border border-grey-200 outline-purple w-full p-3 rounded mt-2" maxlength="10" required value=<%if(editableDoc){%>
@@ -37,7 +35,7 @@
                 </label>
                 <label for="content" class="text-base md:text-lg">
                     Content
-                    <textarea name="content" class="mt-2" id="editor" cols="30" rows="10"  required >
+                    <textarea name="content" class="mt-2 " id="editor" cols="30" rows="10"  required >
                         <%if(editableDoc){%>
                             <%=editableDoc.content%>
                         <%}%>

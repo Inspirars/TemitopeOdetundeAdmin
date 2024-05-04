@@ -22,7 +22,6 @@ router.post('/signup', asyncHandler(async(req,res,next)=>{
     error = [ {msg :"User already exists"}]
     res.render('signUp', {title : "Sign Up Error", error : error})
   }else{
-  
   var saltHash = genPassword(req.body.password)
   // genpassword returns a salt and hash
 

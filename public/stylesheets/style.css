@@ -622,16 +622,20 @@ video {
   margin-bottom: 3rem;
 }
 
+.mb-2 {
+  margin-bottom: 0.5rem;
+}
+
 .mb-4 {
   margin-bottom: 1rem;
 }
 
-.mt-2 {
-  margin-top: 0.5rem;
-}
-
 .mb-7 {
   margin-bottom: 1.75rem;
+}
+
+.mt-2 {
+  margin-top: 0.5rem;
 }
 
 .flex {
@@ -889,6 +893,11 @@ tr:nth-child(even) {
   cursor: pointer;
 }
 
+.err{
+  font-style: italic;
+  background-color: red;
+}
+
 /* body div#ex0 , body div#ex1 p, body div#ex2{  
   } */
 
@@ -955,6 +964,11 @@ tr:nth-child(even) {
     padding-top: 2rem;
   }
 
+  .md\:text-3xl {
+    font-size: 1.875rem;
+    line-height: 2.25rem;
+  }
+
   .md\:text-4xl {
     font-size: 2.25rem;
     line-height: 2.5rem;
@@ -963,11 +977,6 @@ tr:nth-child(even) {
   .md\:text-lg {
     font-size: 1.125rem;
     line-height: 1.75rem;
-  }
-
-  .md\:text-3xl {
-    font-size: 1.875rem;
-    line-height: 2.25rem;
   }
 }
 
@@ -982,6 +991,10 @@ tr:nth-child(even) {
 
   .lg\:w-\[50\%\] {
     width: 50%;
+  }
+
+  .lg\:w-full {
+    width: 100%;
   }
 
   .lg\:px-20 {
