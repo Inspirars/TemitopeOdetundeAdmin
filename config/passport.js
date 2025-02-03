@@ -9,7 +9,7 @@ const customFields = {
 }
 
 function verifyCallback(username, password, doneFunction){
-    User.findOne({username : username})
+    User.findOne({username : username.toLowerCase()})
     .then(user => {
         // is user in the database
         // if not return full and notify passport that there was no error

@@ -15,14 +15,18 @@ router.get('/signup',function(req, res, next) {
   res.render('signUp', {title: 'Sign Up', error});
 });
 router.post('/signup', asyncHandler(async(req,res,next)=>{
-  let username = req.body.username
-  newUser = await User.findOne({username : username}).exec()
-  if (newUser){
-    console.log(newUser)
-    error = [ {msg :"User already exists"}]
+  let {username, password} = req.body
+  if(!username || !password){
+    error = [{msg :"Missing parameters"}]
+    res.render('signUp', {title : "Sign Up Error", error : error})
+  }
+  username = username.toLowerCase()
+  const existinguser = await User.findOne({username : username}).exec()
+  if (existinguser){
+    error = [{msg :"User already exists"}]
     res.render('signUp', {title : "Sign Up Error", error : error})
   }else{
-  var saltHash = genPassword(req.body.password)
+  var saltHash = genPassword(password)
   // genpassword returns a salt and hash
 
   salt = saltHash.salt
