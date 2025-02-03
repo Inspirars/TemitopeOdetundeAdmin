@@ -47,7 +47,11 @@ router.post('/signup', asyncHandler(async(req,res,next)=>{
 router.get('/signin',(req,res,next)=> {
   res.render('signIn', {title : "Sign In"})
 })
-router.post('/signin',passport.authenticate('local',{failureRedirect : "/signin", successRedirect : "/home"}))
+router.get('/failedSign',(req,res,next)=> {
+  error = [{msg :"User already exists"}]
+  res.render('signUp', {title : "Sign in Error", error : error})
+})
+router.post('/signin',passport.authenticate('local',{failureRedirect : "/failedSign", successRedirect : "/home"}))
 
 router.get('/logout', (req,res,next)=>{
   req.logOut((err)=>{
