@@ -24,11 +24,11 @@
             <input type="password" name="password" id="form1Example23" class="form-control form-control-lg" />
             <label class="form-label" for="form1Example23">Password</label>
           </div>
-          <%if(error){%>
-            <%error?.forEach(err =>{%>
-              <p class="err mb-2 text-danger"><%=err.msg%></p>
-            <%})%>
-          <%}%>
+          <% if (error && error.length) { %>
+            <% error.forEach(err => { %>
+              <p class="err mb-2 text-danger"><%= err.msg %></p>
+            <% }); %>
+          <% } %>
 
           <!-- Submit button -->
           <button type="submit" data-mdb-button-init data-mdb-ripple-init class="btn btn-primary btn-lg btn-block">Sign Up</button>

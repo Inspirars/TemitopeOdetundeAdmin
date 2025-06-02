@@ -911,7 +911,7 @@ tr:nth-child(even) {
 
 .err{
   font-style: italic;
-  background-color: red;
+  color: red;
 }
 
 /* body div#ex0 , body div#ex1 p, body div#ex2{  

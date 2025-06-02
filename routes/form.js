@@ -45,13 +45,17 @@ router.post('/signup', asyncHandler(async(req,res,next)=>{
 }))
 
 router.get('/signin',(req,res,next)=> {
-  res.render('signIn', {title : "Sign In"})
+  res.render('signIn', {title : "Sign In", error : []})
 })
 router.get('/failedSign',(req,res,next)=> {
   error = [{msg :"User already exists"}]
   res.render('signUp', {title : "Sign in Error", error : error})
 })
-router.post('/signin',passport.authenticate('local',{failureRedirect : "/failedSign", successRedirect : "/home"}))
+router.get('/failedSignIn',(req,res,next)=> {
+  error = [{msg :"Invalid Username / Password"}]
+  res.render('signIn', {title : "Sign in Error", error : error})
+})
+router.post('/signin',passport.authenticate('local',{failureRedirect : "/failedSignIn", successRedirect : "/home"}))
 
 router.get('/logout', (req,res,next)=>{
   req.logOut((err)=>{

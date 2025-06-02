@@ -24,6 +24,7 @@ table {
   }
   .err{
     font-style: italic;
+    color : red
   }
   /* body div#ex0 , body div#ex1 p, body div#ex2{  
   } */
